@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/img/Sona.png" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome CSS -->
+    <title>Event Rules & Regulations</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+            /* Allow scrollbars */
+        }
+        /* Full-width background image */
+        
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Place behind content */
+        }
+        /* Container for the rectangular content */
+        
+        .content-container {
+            position: relative;
+            /* Adjust positioning */
+            width: 80%;
+            /* Adjust width as needed */
+            max-width: 800px;
+            /* Maximum width for large screens */
+            background: rgba(247, 193, 193, 0.9);
+            /* Semi-transparent background for readability */
+            border-radius: 10px;
+            /* Rounded corners for a nicer look */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            /* Optional shadow for better visibility */
+            padding: 20px;
+            box-sizing: border-box;
+            /* Include padding in height calculation */
+            text-align: left;
+            /* Left-align the content within the container */
+            margin: 50px auto;
+            /* Center the container horizontally and add margin */
+        }
+        /* Heading style */
+        
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #48290a;
+            text-align: center;
+            /* Center the heading */
+        }
+        /* List style */
+        
+        ul.rules-list {
+            font-size: 1.7em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #052657;
+            text-align: justify;
+            /* Justify the list text */
+            padding-left: 20px;
+            /* Indentation for the list */
+        }
+        
+        ul.rules-list li {
+            margin-bottom: 10px;
+            /* Space between list items */
+        }
+        
+        span {
+            color: #000000;
+        }
+        /* Button style */
+        
+        .register-button {
+            display: inline-block;
+            font-size: 1em;
+            color: #fff;
+            background-color: #f45875;
+            padding: 10px 20px;
+            /* Adjust padding for better button size */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            /* Center button horizontally with margin */
+        }
+        
+        .register-button:hover {
+            background-color: #d81b60;
+        }
+        /* Contact details styling */
+        
+        .contact-details-container {
+            text-align: center;
+            /* Center the contact details heading */
+            margin-top: 30px;
+            /* Add margin to separate from content */
+        }
+        
+        .contact-details-container h2 {
+            font-size: 1.8em;
+            color: #48290a;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            max-width: 400px;
+            color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            padding: 15px o;
+            padding-left: 70px;
+            padding-bottom: 30px;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            font-size: 1em;
+            /* Ensure font size matches the rest of the page */
+            display: flex;
+            align-items: center;
+            text-align: justify;
+        }
+        
+        .contact-details li:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            font-size: 1.5em;
+            /* Adjust icon size */
+            color: #052657;
+            margin-right: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            /* Stack items vertically */
+            font-size: 1em;
+            /* Ensure font size matches the rest of the page */
+        }
+        
+        .contact-info h3 {
+            font-size: 1.2em;
+            color: #052657;
+            margin: 0;
+            margin-top: 35px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info p {
+            margin: 0;
+            /* Remove margin from paragraph to maintain spacing */
+            font-size: 1.2em;
+            color: #000000;
+        }
+        /* Responsive adjustments for mobile screens */
+        
+        @media (max-width: 768px) {
+            /* Adjust the container width and margin for better fit on tablets and smaller screens */
+            .content-container {
+                width: 90%;
+                /* Adjust width for better fit */
+                margin: 20px auto;
+                /* Reduce margin for smaller screens */
+                padding: 15px;
+                /* Adjust padding for better spacing */
+            }
+            /* Adjust font sizes for headings and paragraphs for smaller screens */
+            h1 {
+                font-size: 1.5em;
+                /* Slightly smaller heading font size */
+            }
+            p {
+                font-size: 1.2em;
+                /* Slightly smaller paragraph font size */
+            }
+            /* Adjust button size */
+            .register-button {
+                font-size: 0.9em;
+                /* Slightly smaller font size for the button */
+                width: 120px;
+                /* Adjust button width */
+                padding: 8px 15px;
+                /* Adjust padding */
+            }
+            /* Adjust contact details layout */
+            .contact-details-container h2 {
+                font-size: 1.5em;
+                /* Slightly smaller heading font size */
+            }
+            .contact-details {
+                max-width: 100%;
+                /* Full width for smaller screens */
+                padding: 10px;
+                /* Adjust padding */
+            }
+            .contact-details li {
+                font-size: 0.9em;
+                /* Slightly smaller font size */
+            }
+            .contact-icon {
+                font-size: 1.2em;
+                /* Slightly smaller icon size */
+            }
+            .contact-info h3 {
+                font-size: 1em;
+                /* Adjust font size for contact info */
+            }
+            .contact-info p {
+                font-size: 1em;
+                /* Adjust font size for contact paragraph */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            .content-container {
+                width: 95%;
+                /* Wider width for very small screens */
+                padding: 10px;
+                /* Less padding */
+            }
+            h1 {
+                font-size: 1.5em;
+                /* Smaller heading font size */
+            }
+            p {
+                font-size: 1em;
+                /* Smaller paragraph font size */
+            }
+            .register-button {
+                font-size: 0.8em;
+                /* Smaller font size for the button */
+                width: 100px;
+                /* Smaller button width */
+                padding: 6px 12px;
+                /* Smaller padding */
+            }
+            .contact-details-container h2 {
+                font-size: 1.3em;
+                /* Smaller heading font size */
+            }
+            .contact-details {
+                max-width: 100%;
+                /* Full width */
+                padding: 8px;
+                /* Less padding */
+            }
+            .contact-details li {
+                font-size: 1em;
+                /* Smaller font size */
+            }
+            .contact-icon {
+                font-size: 1em;
+                margin-top: 10px;
+                /* Smaller icon size */
+            }
+            .contact-info h3 {
+                font-size: 0.9em;
+                /* Smaller font size */
+            }
+            .contact-info p {
+                font-size: 0.9em;
+                /* Smaller font size */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background image -->
+    <img src="./img/eventimg/technical background.jpeg" alt="Background Image" class="background-image">
+
+    <!-- Container for the rectangular content -->
+    <div class="content-container">
+        <h1>Event Rules for TechTalk Tussle</h1>
+        <ul class="rules-list">
+            <li><span>Team Composition:</span> The debate will consist of two teams: one supporting the positive side and the other the negative side. Teams can be formed by combining different individuals based on available slots.</li>
+            <li><span>Debate Structure: </span>Teams will be proceed with opening statement, followed by rebuttals and end with closing reviews. The entire debate conversation must be conducted in English.</li>
+            <li><span>Respectful Conduct: </span>Participants must maintain respect, avoid personal attacks, and not interrupt the opposing team during the debate.</li>
+            <li><span>Time Management:</span> Strict adherence to time limits is mandatory, with penalties for exceeding allocated time.</li>
+            <li>Topic Assignment and Preparation:</span> The technology based topic will be given on the spot, and teams will be given few minutes for preparation before the debate begins.</li>
+            <li><span>Judging Criteria: </span>Teams will be evaluated based on content accuracy, presentation style, rebuttal effectiveness and handling questionnaires. The final decision will rely on the jury’s feedback.</li>
+            <li>The prize will be given to two individuals: one for the winner and the other for the runner-up.
+            </li>
+        </ul>
+        <a href="https://forms.gle/8FYHphzhkNGffJAk7" class="register-button">Register Now</a>
+        <!-- Contact details section below the register button -->
+        <div class="contact-details-container">
+            <h2>Contact Details</h2>
+            <ul class="contact-details">
+                <li>
+                    <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                    <div class="contact-info">
+                        <h3>Ashwini B / MCA</h3>
+                        <p>Phone: 9629293749</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                    <div class="contact-info">
+                        <h3>Monikaa Sri B / MCA</h3>
+                        <p>Phone: 9942391894</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
