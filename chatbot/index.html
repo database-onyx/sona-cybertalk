@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SympoTech Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="chat-container" id="chat-container">
+  <div class="chat-header">
+    <div class="header-content">
+      <img src="./images/ai.png" alt="SympoTech" class="header-logo">
+      <div>
+        <h1>SympoTech</h1>
+        <p class="subtitle">CYBERTALK'25 Assistant</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="header-button" id="minimize-button"><i class="fas fa-minus"></i></button>
+      <button class="header-button" id="close-button"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <div id="chat-messages" class="chat-messages">
+    <div class="welcome-message">
+      <div class="welcome-content">
+        <img src="./images/ai.png" alt="SympoTech" class="welcome-logo">
+        <div>
+          <h2>Welcome to CYBERTALK'25!</h2>
+          <p>I'm your virtual assistant. Ask me about events, schedules, registration, or rules.</p>
+          <div class="quick-actions">
+            <button class="quick-action-btn" data-query="technical events">Technical Events</button>
+            <button class="quick-action-btn" data-query="non-technical events">Non-Tech Events</button>
+            <button class="quick-action-btn" data-query="schedule">Schedule</button>
+            <button class="quick-action-btn" data-query="registration">Registration</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <div class="input-container">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Ask about CYBERTALK'25..."
+        autocomplete="off"
+      />
+      <button id="send-button">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+    <p class="input-hint">Press Enter to send</p>
+  </div>
+</div>
+
+<div class="chat-toggle-button" id="chat-toggle-button">
+  <div class="toggle-bubble">
+    <img src="./images/ai.png" alt="Chat" class="toggle-logo">
+    <span class="notification-badge"><i class="fas fa-comment-alt"></i></span>
+  </div>
+  <span class="toggle-text">Need help?</span>
+</div>
+
+<script src="chatbot.js"></script>
+</body>
+</html>
