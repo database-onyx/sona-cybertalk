@@ -1,0 +1,107 @@
+===============================================
+ LICENSE & CREDITS
+===============================================
+
+MIT License
+
+Copyright (c) 2025 Sivashankar V.P / Sona college of Technology
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this website and associated documentation files (the "Website"), to deal
+in the Website without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Website, and to permit persons to whom the Website is
+furnished to do so, subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included
+   in all copies or substantial portions of the Website.
+
+2. This license applies to all original code, text, images, and design
+   created by [Your Name / Your Organization] for this Website.
+
+3. Third-party libraries, frameworks, and assets used in this Website are
+   licensed separately under their respective open-source licenses.
+   Credits and license notices for these resources are provided below.
+
+THE WEBSITE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE WEBSITE OR THE USE OR OTHER DEALINGS
+IN THE WEBSITE.
+
+===============================================
+ THIRD-PARTY LIBRARIES & ASSETS CREDITS
+===============================================
+
+1. Particles.js
+   Author: Vincent Garreau
+   License: MIT License
+   Source: https://github.com/VincentGarreau/particles.js
+   Notes: Used for particle background animation effects.
+
+2. Typed.js
+   Author: Matt Boldt
+   License: MIT License
+   Source: https://github.com/mattboldt/typed.js
+   Notes: Used for typing text animation effects.
+
+3. VanillaTilt.js
+   Author: M. L. Reniers
+   License: MIT License
+   Source: https://micku7zu.github.io/vanilla-tilt.js/
+   Notes: Used for card tilt/parallax effects.
+
+4. Swiper.js
+   Author: Vladimir Kharlampidi
+   License: MIT License
+   Source: https://swiperjs.com/
+   Notes: Used for image and testimonial carousel.
+
+5. ScrollReveal.js
+   Author: Julian Lloyd
+   License: MIT License
+   Source: https://scrollrevealjs.org/
+   Notes: Used for scroll-triggered animations.
+
+6. Animate.css
+   Author: Daniel Eden
+   License: MIT License
+   Source: https://animate.style/
+   Notes: Used for predefined CSS animations.
+
+7. jQuery
+   License: MIT License
+   Source: https://jquery.com/
+   Notes: Used for DOM manipulation and event handling.
+
+8. RandomUser.me Images
+   Source: https://randomuser.me/
+   License: Free to use (no attribution required)
+   Notes: Used for placeholder profile images in the organizers section.
+
+9. External Content References (Events)
+   Original event descriptions in `events.json` reference 
+   projects by Jigar Sable.
+   Author: Jigar Sable
+   Source: https://github.com/jigar-sable
+   License: Refer to individual project repositories.
+   Notes: Used for demonstration purposes; credit retained.
+
+10. Font Awesome Icons
+    License: CC BY 4.0 License
+    Source: https://fontawesome.com/
+    Notes: Used for icons in navigation, social links, and buttons.
+
+===============================================
+ HOW TO COMPLY WITH THESE LICENSES
+===============================================
+- This `LICENSE.txt` file must be included with all distributions of 
+  the website source code.
+- Do not remove any copyright/license headers 
+  from third-party files.
+- If hosting publicly, provide a link to this license file 
+  in the site footer or "About" section.
+
+===============================================
