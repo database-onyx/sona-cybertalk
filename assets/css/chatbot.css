@@ -1,0 +1,486 @@
+/* Import Google Fonts + Font Awesome (must stay global) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Namespace for chatbot */
+.sympo-chat {
+  font-family: 'Inter', sans-serif;
+  --primary: #4503fc;
+  --primary-light: #7a45ff;
+  --primary-dark: #3000b3;
+  --secondary: #03cffc;
+  --accent: #fc03c4;
+  --text-dark: #1a1a2e;
+  --text-light: #ffffff;
+  --bg-light: #f8f9ff;
+  --bg-white: #ffffff;
+  --border-light: #e0e0ff;
+  --gray: #6b7280;
+  --gray-light: #f3f4ff;
+
+  --shadow-sm: 0 1px 3px rgba(69, 3, 252, 0.1);
+  --shadow-md: 0 4px 6px rgba(69, 3, 252, 0.1);
+  --shadow-lg: 0 10px 15px rgba(69, 3, 252, 0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  font-size: 62.5%; /* 1rem = 10px inside chatbot */
+}
+
+/* Reset only inside chatbot */
+.sympo-chat * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+.sympo-chat body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.sympo-chat h1, 
+.sympo-chat h2, 
+.sympo-chat h3, 
+.sympo-chat h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.sympo-chat h1 { font-size: 3.2rem; }
+.sympo-chat h2 { font-size: 2.6rem; }
+.sympo-chat h3 { font-size: 2.2rem; }
+.sympo-chat h4 { font-size: 1.9rem; }
+
+/* Chat Container */
+.sympo-chat .chat-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 360px;
+  height: 560px;
+  max-height: 80vh;
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  border: 1px solid var(--border-light);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.sympo-chat .chat-container.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Header */
+.sympo-chat .chat-header {
+  padding: 0.8rem 1rem; /* reduced */
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sympo-chat .header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sympo-chat .header-logo {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.sympo-chat .chat-header h1 {
+  font-size: 1.4rem; /* smaller text */
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+.sympo-chat .subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+.sympo-chat .header-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+.sympo-chat .header-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-light);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+.sympo-chat .header-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Messages */
+.sympo-chat .chat-messages {
+  flex: 1;
+  padding: 1.2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--bg-light);
+}
+.sympo-chat .welcome-message {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  margin-bottom: 0.8rem;
+  box-shadow: var(--shadow-sm);
+}
+.sympo-chat .welcome-content {
+  display: flex;
+  gap: 1.2rem;
+}
+.sympo-chat .welcome-logo {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.8);
+}
+.sympo-chat .welcome-message h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+}
+.sympo-chat .welcome-message p {
+  font-size: 1.3rem;
+  color: var(--gray);
+  margin-bottom: 1.2rem;
+}
+.sympo-chat .quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+.sympo-chat .quick-action-btn {
+  background: var(--gray-light);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sympo-chat .quick-action-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+.sympo-chat .message {
+  max-width: 85%;
+  padding: 1rem 1.4rem;
+  border-radius: var(--radius-md);
+  font-size: 1.3rem;
+  line-height: 1.7;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.sympo-chat .bot-message {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  align-self: flex-start;
+  border-top-left-radius: 4px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+.sympo-chat .user-message {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-light);
+  align-self: flex-end;
+  border-top-right-radius: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Typing Indicator */
+.sympo-chat .typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+.sympo-chat .typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  margin-right: 4px;
+  opacity: 0.4;
+  animation: typingAnimation 1.4s infinite;
+}
+.sympo-chat .typing-dot:nth-child(1) { animation-delay: 0s; }
+.sympo-chat .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.sympo-chat .typing-dot:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
+@keyframes typingAnimation {
+  0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Input */
+.sympo-chat .chat-input-area {
+  padding: 1rem 1.4rem;
+  background-color: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+}
+.sympo-chat .input-container {
+  display: flex;
+  gap: 0.6rem;
+}
+.sympo-chat #user-input {
+  flex: 1;
+  padding: 1rem 1.4rem;
+  font-size: 1.3rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all 0.2s;
+  background-color: var(--bg-white);
+}
+.sympo-chat #user-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(69, 3, 252, 0.1);
+}
+.sympo-chat #send-button {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 1.2rem;
+}
+.sympo-chat #send-button:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: translateY(-1px);
+}
+.sympo-chat .input-hint {
+  font-size: 1rem;
+  color: var(--gray);
+  text-align: right;
+  margin-top: 0.3rem;
+  opacity: 0.7;
+}
+
+/* Toggle Button */
+.sympo-chat .chat-toggle-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--bg-white);
+  padding: 1rem 1.4rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 15px rgba(69, 3, 252, 0.4);
+  cursor: pointer;
+  z-index: 1001;
+  border: 1px solid var(--border-light);
+  animation: bounce 2s infinite;
+}
+.sympo-chat .chat-toggle-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  top: 0;
+  left: 0;
+  background: rgba(69, 3, 252, 0.2);
+  animation: pulse 2.5s infinite;
+  z-index: -1;
+}
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+  60% { transform: translateY(-3px); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.sympo-chat .chat-toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(69, 3, 252, 0.8);
+}
+.sympo-chat .toggle-bubble {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sympo-chat .toggle-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.sympo-chat .notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  color: var(--text-light);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-white);
+}
+.sympo-chat .toggle-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  padding-right: 0.5rem;
+}
+
+/* Event Cards */
+.sympo-chat .event-card {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  margin: 0.6rem 0;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+.sympo-chat .event-title {
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+}
+.sympo-chat .event-detail {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+.sympo-chat .event-detail strong {
+  color: var(--text-dark);
+  min-width: 6.5rem;
+  display: inline-block;
+}
+.sympo-chat .event-rules {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-light);
+}
+.sympo-chat .event-rules-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+}
+.sympo-chat .event-rule {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+.sympo-chat .event-rule::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.sympo-chat .contact-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-light);
+  font-size: 1.3rem;
+}
+
+/* Scrollbar */
+.sympo-chat .chat-messages::-webkit-scrollbar { width: 7px; }
+.sympo-chat .chat-messages::-webkit-scrollbar-track {
+  background: rgba(224,224,255,0.5);
+  border-radius: 3px;
+}
+.sympo-chat .chat-messages::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sympo-chat .chat-container {
+    width: 90vw; height: 80vh; right: 5vw; bottom: 1rem;
+  }
+  .sympo-chat .chat-toggle-button { bottom: 1rem; right: 1rem; }
+  .sympo-chat .toggle-text { display: none; }
+}
+@media (max-width: 480px) {
+  .sympo-chat .chat-container {
+    width: 100vw; height: 100vh; right: 0; bottom: 0; border-radius: 0;
+  }
+  .sympo-chat .chat-header { padding: 0.7rem 1rem; }
+  .sympo-chat .chat-messages { padding: 1rem; }
+  .sympo-chat .chat-input-area { padding: 1rem; }
+  .sympo-chat #user-input { padding: 1rem; }
+  .sympo-chat .chat-toggle-button {
+    width: 60px; height: 60px; bottom: 1.2rem; right: 1.2rem;
+    padding: 0; border-radius: 50%; justify-content: center;
+  }
+  .sympo-chat .toggle-bubble { width: 52px; height: 52px; }
+  .sympo-chat .toggle-logo { width: 26px; height: 26px; }
+  .sympo-chat .notification-badge { width: 22px; height: 22px; font-size: 1rem; }
+}
+
+/* Animations */
+.sympo-chat .animate__animated.animate__fadeInUp { --animate-duration: 0.6s; }
+.sympo-chat .animate__animated.animate__pulse { --animate-duration: 0.8s; }
+.sympo-chat .animate__animated.animate__fadeIn { --animate-duration: 0.5s; }
+.sympo-chat .shake { animation: shake 0.5s ease-in-out; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
